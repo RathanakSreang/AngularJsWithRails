@@ -10,6 +10,7 @@ describe("Spec Route Test", function(){
   describe('"/" path', function(){
     beforeEach(inject(function($httpBackend){
       $httpBackend.expectGET("templates/home.html").respond(200);
+      $httpBackend.whenGET("/contacts.json").respond(200);
     }))
     it('should  load right controller with path "/" ', function(){
       location.path("/");
