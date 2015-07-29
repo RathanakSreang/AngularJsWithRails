@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="AngularDemo">
 <head>
+  <base href="/">
   <title>AngularRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="navbar navbar-inverse" ng-controller="NavController">
+  <div class="navbar-header">
+    <ul class="nav navbar-nav">
+      <li class="{{home}}"><a href="/">Home</a></li>
+      <li class="{{help}}"><a href="/help">Help</a></li>
+      <li class="{{about}}"><a href="/about">About</a></li>
+    </ul></div>
+  </div>
+  <div ng-view>
+    <%= yield %>
+  </div>
 </body>
 </html>

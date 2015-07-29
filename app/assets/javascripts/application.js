@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
+//= require lib/angular
 //= require_tree .
+
+$(document).on("page:load", function() {
+  return $("[ng-app]").each(function() {
+    var module;
+    module = $(this).attr("ng-app");
+    return angular.bootstrap(this, module);
+  });
+});
